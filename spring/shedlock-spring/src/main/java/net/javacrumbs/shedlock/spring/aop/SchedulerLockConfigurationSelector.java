@@ -34,6 +34,7 @@ public class SchedulerLockConfigurationSelector implements ImportSelector {
         if (mode == PROXY_METHOD) {
             return new String[]{AutoProxyRegistrar.class.getName(), MethodProxyLockConfiguration.class.getName()};
         } else if (mode == PROXY_SCHEDULER) {
+            // 默认的这种代理模式
             return new String[]{AutoProxyRegistrar.class.getName(), SchedulerProxyLockConfiguration.class.getName(), RegisterDefaultTaskSchedulerPostProcessor.class.getName()};
         } else {
             throw new UnsupportedOperationException("Unknown mode " + mode);
